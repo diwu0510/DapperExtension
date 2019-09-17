@@ -1,0 +1,14 @@
+E:\Works\通用项目\基于Dapper的数据访问层\Test\bin\Debug\netcoreapp2.2\Test.deps.json
+E:\Works\通用项目\基于Dapper的数据访问层\Test\bin\Debug\netcoreapp2.2\Test.runtimeconfig.json
+E:\Works\通用项目\基于Dapper的数据访问层\Test\bin\Debug\netcoreapp2.2\Test.runtimeconfig.dev.json
+E:\Works\通用项目\基于Dapper的数据访问层\Test\bin\Debug\netcoreapp2.2\Test.dll
+E:\Works\通用项目\基于Dapper的数据访问层\Test\bin\Debug\netcoreapp2.2\Test.pdb
+E:\Works\通用项目\基于Dapper的数据访问层\Test\bin\Debug\netcoreapp2.2\HZC.Data.Dapper.dll
+E:\Works\通用项目\基于Dapper的数据访问层\Test\bin\Debug\netcoreapp2.2\HZC.Data.Dapper.pdb
+E:\Works\通用项目\基于Dapper的数据访问层\Test\obj\Debug\netcoreapp2.2\Test.csprojAssemblyReference.cache
+E:\Works\通用项目\基于Dapper的数据访问层\Test\obj\Debug\netcoreapp2.2\Test.csproj.CoreCompileInputs.cache
+E:\Works\通用项目\基于Dapper的数据访问层\Test\obj\Debug\netcoreapp2.2\Test.AssemblyInfoInputs.cache
+E:\Works\通用项目\基于Dapper的数据访问层\Test\obj\Debug\netcoreapp2.2\Test.AssemblyInfo.cs
+E:\Works\通用项目\基于Dapper的数据访问层\Test\obj\Debug\netcoreapp2.2\Test.csproj.CopyComplete
+E:\Works\通用项目\基于Dapper的数据访问层\Test\obj\Debug\netcoreapp2.2\Test.dll
+E:\Works\通用项目\基于Dapper的数据访问层\Test\obj\Debug\netcoreapp2.2\Test.pdb

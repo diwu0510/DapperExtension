@@ -1,0 +1,9 @@
+E:\Works\通用项目\基于Dapper的数据访问层\HZC.Data.Dapper\bin\Debug\netstandard2.0\HZC.Data.Dapper.deps.json
+E:\Works\通用项目\基于Dapper的数据访问层\HZC.Data.Dapper\bin\Debug\netstandard2.0\HZC.Data.Dapper.dll
+E:\Works\通用项目\基于Dapper的数据访问层\HZC.Data.Dapper\obj\Debug\netstandard2.0\HZC.Data.Dapper.csproj.CoreCompileInputs.cache
+E:\Works\通用项目\基于Dapper的数据访问层\HZC.Data.Dapper\obj\Debug\netstandard2.0\HZC.Data.Dapper.AssemblyInfoInputs.cache
+E:\Works\通用项目\基于Dapper的数据访问层\HZC.Data.Dapper\obj\Debug\netstandard2.0\HZC.Data.Dapper.AssemblyInfo.cs
+E:\Works\通用项目\基于Dapper的数据访问层\HZC.Data.Dapper\bin\Debug\netstandard2.0\HZC.Data.Dapper.pdb
+E:\Works\通用项目\基于Dapper的数据访问层\HZC.Data.Dapper\obj\Debug\netstandard2.0\HZC.Data.Dapper.dll
+E:\Works\通用项目\基于Dapper的数据访问层\HZC.Data.Dapper\obj\Debug\netstandard2.0\HZC.Data.Dapper.pdb
+E:\Works\通用项目\基于Dapper的数据访问层\HZC.Data.Dapper\obj\Debug\netstandard2.0\HZC.Data.Dapper.csprojAssemblyReference.cache
