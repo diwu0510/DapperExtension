@@ -2,6 +2,9 @@
 
 namespace HZC.Data.Dapper.SqlBuilders
 {
+    /// <summary>
+    /// 条件子句列表，用于ConditionBuilder的AndOr方法
+    /// </summary>
     public class ConditionClausList : List<ConditionClaus>
     {
         public static ConditionClausList New()

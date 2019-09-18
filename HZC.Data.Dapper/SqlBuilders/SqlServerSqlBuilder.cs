@@ -76,7 +76,12 @@ namespace HZC.Data.Dapper.SqlBuilders
         }
         #endregion
 
-        #region LOAD
+        #region 加载一条数据|一个实体
+        /// <summary>
+        /// 通过Id加载实体
+        /// </summary>
+        /// <param name="info"></param>
+        /// <returns></returns>
         public static string LoadById(CustomEntityInfo info)
         {
             if (info.IsSoftDelete)
@@ -86,6 +91,13 @@ namespace HZC.Data.Dapper.SqlBuilders
             return $"SELECT {info.GetSelectFields()} FROM {info.TableName} WHERE Id=@Id";
         }
 
+        /// <summary>
+        /// 通过条件查询实体
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="condition"></param>
+        /// <param name="sort"></param>
+        /// <returns></returns>
         public static string LoadByCondition(CustomEntityInfo info, string condition, string sort)
         {
             if (string.IsNullOrWhiteSpace(condition))
@@ -101,6 +113,14 @@ namespace HZC.Data.Dapper.SqlBuilders
             return $"SELECT TOP 1 {info.GetSelectFields()} FROM {info.TableName} WHERE {condition} ORDER BY {sort}";
         }
 
+        /// <summary>
+        /// 指定表查询一条数据
+        /// </summary>
+        /// <param name="table">数据表</param>
+        /// <param name="fields">字段</param>
+        /// <param name="condition">条件</param>
+        /// <param name="sort">排序</param>
+        /// <returns></returns>
         public static string LoadByCondition(string table, string fields, string condition, string sort)
         {
             if (string.IsNullOrWhiteSpace(condition))
@@ -117,7 +137,14 @@ namespace HZC.Data.Dapper.SqlBuilders
         }
         #endregion
 
-        #region SELECT
+        #region 查询
+        /// <summary>
+        /// 查询实体列表
+        /// </summary>
+        /// <param name="info">实体信息</param>
+        /// <param name="condition">条件</param>
+        /// <param name="sort">排序</param>
+        /// <returns></returns>
         public static string Select(CustomEntityInfo info, string condition, string sort)
         {
             if (string.IsNullOrWhiteSpace(condition))
@@ -133,6 +160,14 @@ namespace HZC.Data.Dapper.SqlBuilders
             return $"SELECT {info.GetSelectFields()} FROM {info.TableName} WHERE {condition} ORDER BY {sort}";
         }
 
+        /// <summary>
+        /// 查询指定表数据
+        /// </summary>
+        /// <param name="table">数据表</param>
+        /// <param name="fields">字段</param>
+        /// <param name="condition">条件</param>
+        /// <param name="sort">排序</param>
+        /// <returns></returns>
         public static string Select(string table, string fields, string condition, string sort)
         {
             if (string.IsNullOrWhiteSpace(condition))
@@ -149,8 +184,17 @@ namespace HZC.Data.Dapper.SqlBuilders
         }
         #endregion
 
-        #region PAGING SELECT
+        #region 分页查询
 
+        /// <summary>
+        /// 构造分页查询SQL
+        /// </summary>
+        /// <param name="info">实体的信息</param>
+        /// <param name="condition">条件</param>
+        /// <param name="sort">排序</param>
+        /// <param name="pageIndex">当前页码</param>
+        /// <param name="pageSize">每页数量</param>
+        /// <returns></returns>
         public static string PagingSelect(CustomEntityInfo info, string condition, string sort, int pageIndex, int pageSize)
         {
             if (string.IsNullOrWhiteSpace(condition))
@@ -171,6 +215,15 @@ namespace HZC.Data.Dapper.SqlBuilders
                 : $"SELECT {info.GetSelectFields()} FROM {info.TableName} WHERE {condition} ORDER BY {sort} OFFSET({(pageIndex - 1) * pageSize}) ROW FETCH NEXT {pageSize} ROWS ONLY;";
         }
 
+        /// <summary>
+        /// 构造分页查询并返回数据总数的SQL
+        /// </summary>
+        /// <param name="info">实体的信息</param>
+        /// <param name="condition">条件</param>
+        /// <param name="sort">排序</param>
+        /// <param name="pageIndex">当前页码</param>
+        /// <param name="pageSize">每页数量</param>
+        /// <returns></returns>
         public static string PagingSelectWithTotalCount(CustomEntityInfo info, string condition, string sort, int pageIndex, int pageSize)
         {
             if (string.IsNullOrWhiteSpace(condition))
@@ -189,9 +242,20 @@ namespace HZC.Data.Dapper.SqlBuilders
             return pageIndex == 1
                 ? $"SELECT TOP {pageSize} {info.GetSelectFields()} FROM {info.TableName} WHERE {condition} ORDER BY {sort};SELECT @RecordCount=COUNT(0) FROM {info.TableName} WHERE {condition}"
                 : $"SELECT {info.GetSelectFields()} FROM {info.TableName} WHERE {condition} ORDER BY {sort} OFFSET({(pageIndex - 1) * pageSize}) ROW FETCH NEXT {pageSize} ROWS ONLY;SELECT @RecordCount=COUNT(0) FROM {info.TableName} WHERE {condition}";
-        } 
+        }
         #endregion
 
+        #region 指定表的分页查询
+        /// <summary>
+        /// 获取分页查询并返回数据总量的SQL
+        /// </summary>
+        /// <param name="table">要查询的数据表</param>
+        /// <param name="fields">要查询的字段</param>
+        /// <param name="condition">条件</param>
+        /// <param name="sort">排序</param>
+        /// <param name="pageIndex">当前页码</param>
+        /// <param name="pageSize">每页数量</param>
+        /// <returns></returns>
         public static string PagingSelectWithTotalCount(string table, string fields, string condition, string sort, int pageIndex, int pageSize)
         {
             if (string.IsNullOrWhiteSpace(condition))
@@ -211,5 +275,36 @@ namespace HZC.Data.Dapper.SqlBuilders
                 ? $"SELECT TOP {pageSize} {fields} FROM {table} WHERE {condition} ORDER BY {sort};SELECT @RecordCount=COUNT(0) FROM {table} WHERE {condition}"
                 : $"SELECT {fields} FROM {table} WHERE {condition} ORDER BY {sort} OFFSET({(pageIndex - 1) * pageSize}) ROW FETCH NEXT {pageSize} ROWS ONLY;SELECT @RecordCount=COUNT(0) FROM {table} WHERE {condition}";
         }
+
+        /// <summary>
+        /// 获取分页查询的SQL
+        /// </summary>
+        /// <param name="table">要查询的数据表</param>
+        /// <param name="fields">要查询的字段</param>
+        /// <param name="condition">条件</param>
+        /// <param name="sort">排序</param>
+        /// <param name="pageIndex">当前页码</param>
+        /// <param name="pageSize">每页数量</param>
+        /// <returns></returns>
+        public static string PagingSelect(string table, string fields, string condition, string sort, int pageIndex, int pageSize)
+        {
+            if (string.IsNullOrWhiteSpace(condition))
+            {
+                condition = "1=1";
+            }
+
+            if (string.IsNullOrWhiteSpace(sort))
+            {
+                throw new ArgumentNullException(nameof(sort), "必须提供排序字段");
+            }
+
+            pageIndex = pageIndex < 1 ? 1 : pageIndex;
+            pageSize = pageSize < 1 ? 1 : pageSize;
+
+            return pageIndex == 1
+                ? $"SELECT TOP {pageSize} {fields} FROM {table} WHERE {condition} ORDER BY {sort};"
+                : $"SELECT {fields} FROM {table} WHERE {condition} ORDER BY {sort} OFFSET({(pageIndex - 1) * pageSize}) ROW FETCH NEXT {pageSize} ROWS ONLY;";
+        }
+        #endregion
     }
 }

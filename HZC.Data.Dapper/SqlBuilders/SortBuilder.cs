@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace HZC.Data.Dapper.SqlBuilders
 {
+    /// <summary>
+    /// 排序子句Builder
+    /// </summary>
     public class SortBuilder
     {
         private readonly string _tableName;

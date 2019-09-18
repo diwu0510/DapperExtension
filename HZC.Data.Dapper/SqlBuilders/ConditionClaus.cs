@@ -1,5 +1,8 @@
 ﻿namespace HZC.Data.Dapper.SqlBuilders
 {
+    /// <summary>
+    /// 查询条件子句 {字段} {操作符} {值}
+    /// </summary>
     public class ConditionClaus
     {
         public string Column { get; set; }

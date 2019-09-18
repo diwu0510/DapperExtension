@@ -1,5 +1,9 @@
 ﻿namespace HZC.Data.Dapper.SqlBuilders
 {
+    /// <summary>
+    /// 带软删除的条件Builder
+    /// 默认添加 WHERE IsDel=0
+    /// </summary>
     public class SoftDeleteConditionBuilder : ConditionBuilder
     {
         public SoftDeleteConditionBuilder() : base(originalWhere: "IsDel=0")
